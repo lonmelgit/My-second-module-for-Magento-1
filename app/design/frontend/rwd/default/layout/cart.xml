@@ -1,1 +1,8 @@
-
+<layout version="1.0.0">
+    <default></default>
+    <checkout_cart_index>
+        <reference name="checkout.cart.form.before">
+            <block type="second_task/cart" name="task.cart" template="task/cart.phtml"/>
+        </reference>
+    </checkout_cart_index>
+</layout>
