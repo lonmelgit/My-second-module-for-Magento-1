@@ -1,1 +1,11 @@
-
+<?xml version="1.0"?>
+<layout version="1.0">
+<!-- Adding the block in sales/order/view page -->
+<adminhtml_sales_order_view>
+    <!-- You can change the reference to whatever you like. Look ate layout/sales.xml for more options -->
+    <!-- This should be same in Model/Observer.php::getSalesOrderViewInfo() -->
+    <reference name="order_info">
+        <block type="second_task/adminhtml_sales_order_view_info_block" as="second_task.order.info.custom.block" name="second_task.order.info.custom.block" template="secondtaskadmin/taskadmin.phtml" before="order_history" />
+    </reference>
+</adminhtml_sales_order_view>
+</layout>
