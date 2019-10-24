@@ -1,0 +1,49 @@
+<form id="task-form" action="/task/index/saveincart/" method="post">
+    <h2>Additional information</h2>
+<ul class="form-list">
+    <li class="task-time">
+        <label for="time_id" class="required"><em>*</em>Time for delivery</label>
+        <div class="input-box">
+            <select name="time_id" id="time" class="validate-select" title="Accessible days for order">
+                <option value="">Please select time period</option>
+                <option value="9">9:00</option>
+                <option value="12">12:00</option>
+                <option value="15">15:00</option>
+                <option value="18">18:00</option>
+            </select>
+        </div>
+    </li>
+    <li class="task-day">
+        <label for="days_id" class="required"><em>*</em>Accessible days for order</label>
+        <div class="input-box">
+            <select name="days_id" id="days" class="validate-select" title="Accessible days for order">
+                <option value="">Please select day</option>
+                <option value="Mon">Monday</option>
+                <option value="Tue">Tuesday</option>
+                <option value="Wed">Wednesday</option>
+                <option value="Thur">Thursday</option>
+                <option value="Fri">Friday</option>
+                <option value="Sat">Saturday</option>
+                <option value="Sun">Sunday</option>
+            </select>
+        </div>
+    </li>
+    <li class="task-code">
+        <label for="intercom_code">Intercom code</label>
+        <div class="input-box">
+            <input class="input-text validate-digits" type="text" id="intercome_code" name="intercome_code" value="">
+        </div>
+    </li>
+
+    <div class="button-wrapper">
+        <button type="button" title="Apply" class="button2" onclick="taskForm.submit(false)" value="Apply"><span><span>Apply</span></span></button>
+    </div>
+</ul>
+</form>
+<script type="text/javascript">
+    var taskForm = new VarienForm('task-form');
+    taskForm.submit = function () {
+
+        return VarienForm.prototype.submit.bind(taskForm)();
+    }
+</script>
