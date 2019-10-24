@@ -1,1 +1,16 @@
-
+<?php $data = $this->getUserData(); ?>
+<?php if(!empty($data)) : ?>
+    <div class="entry-edit box-left">
+        <div class="entry-edit-head">
+            <h4 class="icon-head"><?php echo $this->__('Secondtask Data') ?></h4>
+        </div>
+        <fieldset>
+            <div>
+                <?php foreach ($data as $key =>$value) : ?>
+                    <div><span><?php echo $key ?></span>: <span><?php echo $value ?></span></div>
+                <?php endforeach; ?>
+            </div>
+        </fieldset>
+    </div>
+    <div class="clear"></div>
+<?php endif; ?>
