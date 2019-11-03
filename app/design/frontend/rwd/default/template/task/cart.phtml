@@ -4,34 +4,29 @@
     <li class="task-time">
         <label for="time_id" class="required"><em>*</em>Time for delivery</label>
         <div class="input-box">
-            <select name="time_id" id="time" class="validate-select" title="Accessible days for order">
-                <option value="">Please select time period</option>
-                <option value="9">9:00</option>
-                <option value="12">12:00</option>
-                <option value="15">15:00</option>
-                <option value="18">18:00</option>
+            <?php $time = $this->createTimeRange('7:30', '17:30', '30 mins'); ?>
+            <select name="time_id" id="time" class="validate-select" title="Time for delivery">
+                <?php foreach($time as $v) : ?>
+                    <option value="<?php echo $v; ?>" <?php if($v == $this->getFieldValue('time_id')): ?> selected <?php endif; ?>><?php echo $v; ?></option>
+                <?php endforeach; ?>
             </select>
         </div>
     </li>
     <li class="task-day">
         <label for="days_id" class="required"><em>*</em>Accessible days for order</label>
         <div class="input-box">
+            <?php $days = $this->getDays(); ?>
             <select name="days_id" id="days" class="validate-select" title="Accessible days for order">
-                <option value="">Please select day</option>
-                <option value="Mon">Monday</option>
-                <option value="Tue">Tuesday</option>
-                <option value="Wed">Wednesday</option>
-                <option value="Thur">Thursday</option>
-                <option value="Fri">Friday</option>
-                <option value="Sat">Saturday</option>
-                <option value="Sun">Sunday</option>
+                <?php foreach($days as $k => $v) : ?>
+                    <option value="<?php echo $k; ?>" <?php if($k == $this->getFieldValue('days_id')): ?> selected <?php endif; ?>><?php echo $v; ?></option>
+                <?php endforeach; ?>
             </select>
         </div>
     </li>
     <li class="task-code">
         <label for="intercom_code">Intercom code</label>
         <div class="input-box">
-            <input class="input-text validate-digits" type="text" id="intercome_code" name="intercome_code" value="">
+            <input class="input-text validate-digits" type="text" id="intercome_code" name="intercome_code" value="<?php echo $this->getFieldValue('intercome_code') ?>">
         </div>
     </li>
 
